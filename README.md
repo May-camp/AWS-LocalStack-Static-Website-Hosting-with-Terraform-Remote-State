@@ -8,7 +8,7 @@ Website Deployment: Created an S3 bucket to host a static portfolio website cont
 
 Backend Setup: Provisioned a separate, dedicated S3 bucket to securely store infrastructure records.
 
-State Migration: Configured a remote backend file to automatically shift environment tracking data from the local machine into the storage bucket.
+State Migration: We integrated a state configuration script that instructs Terraform to securely export environment memory records from the developer's computer up into the remote cloud environment.
 
 🚀 Step-by-Step Implementation
 Phase 1: Provisioning the Web Infrastructure
