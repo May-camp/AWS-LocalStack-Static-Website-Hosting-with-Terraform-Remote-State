@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Monira</title>
+    <style>
+        /* --- Core Styling --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #38bdf8;
+            --text-muted: #94a3b8;
+            --error-glow: rgba(56, 189, 248, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- Container Layout --- */
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 500px;
+            z-index: 10;
+        }
+
+        /* --- Animated Error Code --- */
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        /* --- Typography & Elements --- */
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        /* --- Interactive Button --- */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--error-glow);
+            transform: translateY(-2px);
+        }
+
+        .back-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .back-btn:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* --- Background Ambience --- */
+        .ambient-orb {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(var(--accent-color), transparent 70%);
+            border-radius: 50%;
+            opacity: 0.08;
+            filter: blur(40px);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: floatOrb 8s ease-in-out infinite;
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                text-shadow: 0 0 0px transparent;
+            }
+
+            5
