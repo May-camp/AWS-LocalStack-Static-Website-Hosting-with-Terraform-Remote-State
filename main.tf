@@ -66,7 +66,7 @@ resource "aws_s3_bucket_website_configuration" "website" {
 
   depends_on = [aws_s3_bucket_acl.example]
 
-resource "aws_dynamodb_table" "locak-table" {
+resource "aws_dynamodb_table" "lock-table" {
   name         = "lock-table"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
