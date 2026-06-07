@@ -2,7 +2,7 @@ resource "aws_s3_bucket" "mybucket" {
   bucket = var.bucketname
 }
 
-resource "aws_s3_bucket_ownership_controls" "example" {
+resource "aws_s3_bucket_ownership_controls" "owner" {
   bucket = aws_s3_bucket.mybucket.id
 
   rule {
@@ -11,7 +11,7 @@ resource "aws_s3_bucket_ownership_controls" "example" {
 }
 
 
-resource "aws_s3_bucket_public_access_block" "example" {
+resource "aws_s3_bucket_public_access_block" "public_access" {
   bucket = aws_s3_bucket.mybucket.id
 
   block_public_acls       = false
@@ -21,10 +21,10 @@ resource "aws_s3_bucket_public_access_block" "example" {
 }
 
 
-resource "aws_s3_bucket_acl" "example" {
+resource "aws_s3_bucket_acl" "acl" {
   depends_on = [
-    aws_s3_bucket_ownership_controls.example,
-    aws_s3_bucket_public_access_block.example,
+    aws_s3_bucket_ownership_controls.owner,
+    aws_s3_bucket_public_access_block.public_access,
   ]
 
   bucket = aws_s3_bucket.mybucket.id
@@ -64,7 +64,7 @@ resource "aws_s3_bucket_website_configuration" "website" {
     key = "error.html"
   }
 
-  depends_on = [aws_s3_bucket_acl.example]
+  depends_on = [aws_s3_bucket_acl.acl]
 
 resource "aws_dynamodb_table" "lock-table" {
   name         = "lock-table"
